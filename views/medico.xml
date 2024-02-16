@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Action --> 
+    <record model="ir.actions.act_window" id="hospital.medico_action_window">
+      <field name="name">Medicos</field>
+      <field name="res_model">hospital.medico</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    
+    <!-- Items del menu --> 
+    <menuitem name="Hospital" id="hospital.menu_root"/>
+    <menuitem name="Medicos" id="hospital.medico" parent="hospital.menu_root" action="hospital.medico_action_window"/>
+
+    <!-- Vista Arbol --> 
+    <record model="ir.ui.view" id="hospital.medico_tree">
+      <field name="name">Lista de Medicos</field>
+      <field name="model">hospital.medico</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nombre"/>
+          <field name="apellido"/>
+          <field name="numeroColegiado"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- Vista Formulario -->
+    <record model="ir.ui.view" id="hospital.medico_form">
+      <field name="name">Medico</field>
+      <field name="model">hospital.medico</field>
+      <field name="arch" type="xml">
+        <form>
+          <group>
+            <group>
+              <field name="nombre"/>
+              <field name="apellido"/>
+              <field name="numeroColegiado"/>
+            </group>
+            <group>
+              <field name="diagnosticos"/>
+            </group>
+          </group>
+        </form>
+      </field>
+    </record>
+
+</odoo>
